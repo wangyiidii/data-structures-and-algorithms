@@ -12,14 +12,14 @@ import java.util.Map;
  * @author ed w
  * @since 1.0
  */
-public class LeetCode01 {
+public class LeetCode0001 {
 
     public static void main(String[] args) {
-        LeetCode01 leetCode01 = new LeetCode01();
+        LeetCode0001 leetCode0001 = new LeetCode0001();
         int[] nums = {2, 7, 11, 15};
         int target = 9;
 
-        int[] result = leetCode01.search(nums, target);
+        int[] result = leetCode0001.search(nums, target);
         System.out.println(Arrays.toString(result));
     }
 

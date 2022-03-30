@@ -13,12 +13,14 @@ import java.util.List;
  * @author ed w
  * @since 1.0
  */
-public class LeetCode02 {
+public class LeetCode0002 {
 
     public static void main(String[] args) {
-        LeetCode02 leetCode02 = new LeetCode02();
-        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+        LeetCode0002 leetCode02 = new LeetCode0002();
+//        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+//        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+        ListNode l1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
+        ListNode l2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
 
         ListNode result = leetCode02.addTwoNumbers(l1, l2);
         System.out.println(result);
@@ -39,9 +41,16 @@ public class LeetCode02 {
             carry = sum / 10;
             ListNode temp = new ListNode(sum % 10);
             cursor.next = temp;
-            cursor = temp;
-            l1 = l1 == null ? l1 : l1.next;
-            l2 = l2 == null ? l2 : l2.next;
+            cursor = cursor.next;
+            if (l1 != null)
+                l1 = l1.next;
+            if (l2 != null)
+                l2 = l2.next;
+
+        }
+        // 最后有进位的话，放到cursor的next节点
+        if (carry > 0) {
+            cursor.next = new ListNode(carry);
         }
         return root.next;
     }
